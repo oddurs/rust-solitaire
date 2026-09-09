@@ -2,7 +2,7 @@
 id: 12
 title: Property tests for engine invariants
 type: test
-status: planned
+status: done
 milestone: v0.1
 labels:
 - testing
