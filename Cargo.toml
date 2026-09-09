@@ -11,6 +11,7 @@ keywords = ["solitaire", "tui", "terminal", "game"]
 categories = ["games", "command-line-utilities"]
 
 [dependencies]
+rand = "0.10"
 
 [lints.rust]
 unsafe_code = "forbid"

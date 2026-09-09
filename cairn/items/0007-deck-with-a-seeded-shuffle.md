@@ -2,7 +2,7 @@
 id: 7
 title: Deck with a seeded shuffle
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 6
