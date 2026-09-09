@@ -2,7 +2,7 @@
 id: 8
 title: Klondike layout and the initial deal
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 7

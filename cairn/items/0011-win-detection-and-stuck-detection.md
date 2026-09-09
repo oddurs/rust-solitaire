@@ -2,7 +2,7 @@
 id: 11
 title: Win detection and stuck detection
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 10

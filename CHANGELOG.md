@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Klondike rules engine: seeded deals, move legality with reasons, draw-one and
+  draw-three stock handling, win and stuck detection.
 - Project scaffold: binary crate that prints a banner, pinned toolchain,
   `scripts/task` seam, `scripts/agent` worktree workflow, git hooks, and CI.
 - Roadmap and backlog as cairn items under `cairn/items`, rendered to

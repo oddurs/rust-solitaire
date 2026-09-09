@@ -2,7 +2,7 @@
 id: 10
 title: Stock draw and waste recycling
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 9
@@ -38,3 +38,7 @@ no-op, so the UI can say so.
 - [ ] 24 draws empties the stock into the waste in order
 - [ ] The 25th draw recycles; the 26th produces the same card as the 1st
 - [ ] Draw with both empty is illegal
+
+## 2026-09-08
+
+Shipped as `DrawMode { One, Three }` rather than a count field: two values, both named, nothing to validate. `Game::new(deck, mode)`; `Game::deal(deck)` is the draw-one shortcut.

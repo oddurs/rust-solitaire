@@ -2,7 +2,7 @@
 id: 9
 title: Move model, legality, and applying a move
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 8
@@ -65,3 +65,7 @@ draw-three changes them.
 - [ ] Moving a run keeps its order
 - [ ] Turning the exposed card face up happens on tableau-to-anything moves
 - [ ] `check_invariants()` holds after every applied move in the tests
+
+## 2026-09-08
+
+`apply` returns `Result<Outcome, Illegal>` where `Outcome` records whether a face-down card was revealed and whether the waste was recycled. Scoring (v0.2) needs both and the engine is the only place that knows.

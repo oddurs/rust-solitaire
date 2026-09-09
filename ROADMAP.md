@@ -6,16 +6,12 @@ A terminal solitaire game written in Rust.
 
 ## v0.1 — Playable Klondike
 
-`##········` 20% · 3 of 15 done · due 2026-10-06
+`#####·····` 47% · 7 of 15 done · due 2026-10-06
 
 A correct Klondike engine you can play to a win in the terminal, on a reproducible deal.
 
 ### planned
 
-- [ ] [`0008`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0008-klondike-layout-and-the-initial-deal.md) Klondike layout and the initial deal <sup>feature · p0 · engine</sup>
-- [ ] [`0009`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0009-move-model-legality-and-applying-a-move.md) Move model, legality, and applying a move <sup>feature · p0 · engine</sup>
-- [ ] [`0010`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0010-stock-draw-and-waste-recycling.md) Stock draw and waste recycling <sup>feature · p0 · engine</sup>
-- [ ] [`0011`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0011-win-detection-and-stuck-detection.md) Win detection and stuck detection <sup>feature · p0 · engine</sup>
 - [ ] [`0012`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0012-property-tests-for-engine-invariants.md) Property tests for engine invariants <sup>test · p1 · engine · testing</sup>
 - [ ] [`0013`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0013-terminal-lifecycle-raw-mode-alternate-screen-restore-on-panic.md) Terminal lifecycle: raw mode, alternate screen, restore on panic <sup>chore · p0 · ui</sup>
 - [ ] [`0014`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0014-application-state-and-event-loop.md) Application state and event loop <sup>feature · p0 · app</sup>
@@ -30,6 +26,10 @@ A correct Klondike engine you can play to a win in the terminal, on a reproducib
 - [x] [`0005`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0005-split-the-crate-into-a-library-and-a-thin-binary.md) Split the crate into a library and a thin binary <sup>chore · p0 · engine · architecture</sup>
 - [x] [`0006`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0006-card-rank-suit-and-color-types.md) Card, Rank, Suit and Color types <sup>feature · p0 · engine</sup>
 - [x] [`0007`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0007-deck-with-a-seeded-shuffle.md) Deck with a seeded shuffle <sup>feature · p0 · engine</sup>
+- [x] [`0008`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0008-klondike-layout-and-the-initial-deal.md) Klondike layout and the initial deal <sup>feature · p0 · engine</sup>
+- [x] [`0009`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0009-move-model-legality-and-applying-a-move.md) Move model, legality, and applying a move <sup>feature · p0 · engine</sup>
+- [x] [`0010`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0010-stock-draw-and-waste-recycling.md) Stock draw and waste recycling <sup>feature · p0 · engine</sup>
+- [x] [`0011`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0011-win-detection-and-stuck-detection.md) Win detection and stuck detection <sup>feature · p0 · engine</sup>
 
 ## v0.2 — Comfortable to play
 
