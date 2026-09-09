@@ -2,7 +2,7 @@
 id: 5
 title: Split the crate into a library and a thin binary
 type: chore
-status: planned
+status: done
 milestone: v0.1
 labels:
 - architecture

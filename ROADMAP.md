@@ -6,15 +6,12 @@ A terminal solitaire game written in Rust.
 
 ## v0.1 — Playable Klondike
 
-`··········` 0% · 0 of 15 done · due 2026-10-06
+`##········` 20% · 3 of 15 done · due 2026-10-06
 
 A correct Klondike engine you can play to a win in the terminal, on a reproducible deal.
 
 ### planned
 
-- [ ] [`0005`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0005-split-the-crate-into-a-library-and-a-thin-binary.md) Split the crate into a library and a thin binary <sup>chore · p0 · engine · architecture</sup>
-- [ ] [`0006`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0006-card-rank-suit-and-color-types.md) Card, Rank, Suit and Color types <sup>feature · p0 · engine</sup>
-- [ ] [`0007`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0007-deck-with-a-seeded-shuffle.md) Deck with a seeded shuffle <sup>feature · p0 · engine</sup>
 - [ ] [`0008`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0008-klondike-layout-and-the-initial-deal.md) Klondike layout and the initial deal <sup>feature · p0 · engine</sup>
 - [ ] [`0009`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0009-move-model-legality-and-applying-a-move.md) Move model, legality, and applying a move <sup>feature · p0 · engine</sup>
 - [ ] [`0010`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0010-stock-draw-and-waste-recycling.md) Stock draw and waste recycling <sup>feature · p0 · engine</sup>
@@ -27,6 +24,12 @@ A correct Klondike engine you can play to a win in the terminal, on a reproducib
 - [ ] [`0017`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0017-new-game-quit-and-a-seed-flag.md) New game, quit, and a --seed flag <sup>feature · p0 · app</sup>
 - [ ] [`0018`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0018-status-line-with-move-count-and-key-hints.md) Status line with move count and key hints <sup>feature · p1 · ui</sup>
 - [ ] [`0019`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0019-readme-gameplay-section-and-a-screenshot.md) README gameplay section and a screenshot <sup>docs · p1 · docs</sup>
+
+### done
+
+- [x] [`0005`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0005-split-the-crate-into-a-library-and-a-thin-binary.md) Split the crate into a library and a thin binary <sup>chore · p0 · engine · architecture</sup>
+- [x] [`0006`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0006-card-rank-suit-and-color-types.md) Card, Rank, Suit and Color types <sup>feature · p0 · engine</sup>
+- [x] [`0007`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0007-deck-with-a-seeded-shuffle.md) Deck with a seeded shuffle <sup>feature · p0 · engine</sup>
 
 ## v0.2 — Comfortable to play
 

@@ -2,7 +2,7 @@
 id: 6
 title: Card, Rank, Suit and Color types
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 5
