@@ -12,4 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Project scaffold: binary crate that prints a banner, pinned toolchain,
   `scripts/task` seam, `scripts/agent` worktree workflow, git hooks, and CI.
 
-[Unreleased]: https://github.com/oddurs/rust-solitaire/compare/HEAD...HEAD
+[Unreleased]: https://github.com/oddurs/rust-solitaire/commits/main

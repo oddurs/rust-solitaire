@@ -160,8 +160,9 @@ cmd_pr() {
   say "git push -u origin $b"
   git push --quiet -u origin "$b"
 
-  if url=$(gh pr view "$b" --json url -q .url 2>/dev/null); then
-    say "pull request already exists"; printf '%s\n' "$url"; return
+  url=$(gh pr list --head "$b" --state open --json url -q '.[0].url' 2>/dev/null || true)
+  if [ -n "$url" ]; then
+    say "open pull request already exists"; printf '%s\n' "$url"; return
   fi
 
   n=$(git rev-list --count "origin/$d..HEAD")
@@ -199,7 +200,8 @@ cmd_done() {
   wt=$(git rev-parse --show-toplevel)
   [ "$wt" != "$root" ] || die "branch $b is checked out in the primary checkout, not a worktree"
 
-  state=$(gh pr view "$b" --json state -q .state 2>/dev/null || true)
+  # Newest PR for this branch; an older merged PR must not count.
+  state=$(gh pr list --head "$b" --state all --limit 1 --json state -q '.[0].state' 2>/dev/null || true)
   [ "$state" = 'MERGED' ] || die "pull request for $b is not merged (state: ${state:-none})"
 
   cd "$root"
@@ -219,7 +221,8 @@ cmd_list() {
   git worktree list --porcelain | awk '/^worktree /{p=$2} /^branch /{sub("refs/heads/","",$2); print p, $2}' |
   while read -r path branch; do
     if [ "$branch" = "$d" ]; then pr='(default)'
-    else pr=$(gh pr view "$branch" --json state,url -q '"\(.state) \(.url)"' 2>/dev/null </dev/null || printf 'no PR'); fi
+    else pr=$(gh pr list --head "$branch" --state all --limit 1 --json state,url -q '.[0] | "\(.state) \(.url)"' 2>/dev/null </dev/null); fi
+    [ -n "$pr" ] || pr='no PR'
     printf '%-40s %-32s %s\n' "$branch" "$path" "$pr"
   done
 }
