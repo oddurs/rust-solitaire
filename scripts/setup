@@ -1,0 +1,13 @@
+#!/bin/sh
+# One-time contributor setup: wire the tracked git hooks and run the checks.
+set -eu
+cd "$(dirname "$0")/.."
+printf '==> git config core.hooksPath .githooks\n'
+git config core.hooksPath .githooks
+chmod +x .githooks/* scripts/*
+if git remote get-url origin >/dev/null 2>&1; then
+  printf '==> git remote set-head origin --auto\n'
+  git remote set-head origin --auto >/dev/null
+fi
+scripts/task check
+printf '\nReady. Start work with: scripts/agent start <type>/<slug>\n'

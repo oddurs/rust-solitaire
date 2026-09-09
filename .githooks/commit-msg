@@ -1,0 +1,33 @@
+#!/bin/sh
+# Reject commit messages that are not Conventional Commits or that carry
+# AI/assistant attribution. Wired via `git config core.hooksPath .githooks`.
+set -eu
+
+msg_file="$1"
+# Drop comment lines and the scissors section git may append.
+body=$(sed -e '/^-\{8,\} >8 -\{8,\}$/,$d' -e '/^#/d' "$msg_file")
+subject=$(printf '%s\n' "$body" | sed -n '1p')
+
+fail() {
+  printf 'commit-msg: %s\n' "$1" >&2
+  printf '  subject: %s\n' "$subject" >&2
+  exit 1
+}
+
+case "$subject" in
+  'Merge '*|'Revert "'*|'fixup! '*|'squash! '*) ;;
+  *)
+    printf '%s\n' "$subject" | grep -Eq \
+      '^(feat|fix|chore|docs|perf|refactor|test|build|ci|style|revert)(\([a-z0-9._/-]+\))?!?: [^ ].*$' \
+      || fail 'expected Conventional Commit: type(scope)!: subject  (feat|fix|chore|docs|perf|refactor|test|build|ci|style|revert)'
+    [ "${#subject}" -le 72 ] || fail 'subject must be 72 characters or fewer'
+    case "$subject" in *.) fail 'subject must not end with a period' ;; esac
+    ;;
+esac
+
+if printf '%s\n' "$body" | grep -Eiq \
+  'co-authored-by:.*(claude|anthropic|openai|chatgpt|gpt|copilot|gemini|cursor|codex|assistant|\bbot\b)|generated (with|by) .*(claude|ai\b|gpt|copilot|cursor|codex)|claude-session|noreply@anthropic\.com' \
+  || printf '%s\n' "$body" | grep -Fq '🤖'; then
+  printf 'commit-msg: message contains AI/assistant attribution, which this repository forbids\n' >&2
+  exit 1
+fi

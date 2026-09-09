@@ -1,0 +1,20 @@
+[package]
+name = "rust-solitaire"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.93"
+description = "A terminal solitaire game written in Rust"
+license = "MIT"
+repository = "https://github.com/oddurs/rust-solitaire"
+readme = "README.md"
+keywords = ["solitaire", "tui", "terminal", "game"]
+categories = ["games", "command-line-utilities"]
+
+[dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }

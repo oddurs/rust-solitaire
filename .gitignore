@@ -1,0 +1,16 @@
+# Rust
+/target/
+
+# Worktrees created by scripts/agent
+.worktrees/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

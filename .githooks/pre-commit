@@ -1,0 +1,6 @@
+#!/bin/sh
+# Keep this fast: formatting and lint only. The full suite runs in pre-push.
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+scripts/task fmt:check
+scripts/task lint

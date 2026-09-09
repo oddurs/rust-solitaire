@@ -1,0 +1,24 @@
+#!/bin/sh
+# Refuse to push to the default branch; run the full check for everything else.
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+
+default=$(git symbolic-ref -q --short refs/remotes/origin/HEAD 2>/dev/null | sed 's|^origin/||')
+[ -n "$default" ] || default=$(git config --get init.defaultBranch || true)
+[ -n "$default" ] || default=main
+
+zero=0000000000000000000000000000000000000000
+needs_check=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -n "$remote_ref" ] || continue
+  # Updating the default branch is refused. Creating it on an empty remote
+  # (remote sha all zeros) is the one-time bootstrap push and is allowed.
+  if [ "$remote_ref" = "refs/heads/$default" ] && [ "$remote_sha" != "$zero" ]; then
+    printf 'pre-push: refusing to push to %s. Open a pull request: scripts/agent pr\n' "$default" >&2
+    exit 1
+  fi
+  [ "$local_sha" = "$zero" ] || needs_check=1
+done
+
+[ "$needs_check" -eq 1 ] || exit 0
+scripts/task check
