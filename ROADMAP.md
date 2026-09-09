@@ -6,13 +6,12 @@ A terminal solitaire game written in Rust.
 
 ## v0.1 — Playable Klondike
 
-`######····` 53% · 8 of 15 done · due 2026-10-06
+`######····` 60% · 9 of 15 done · due 2026-10-06
 
 A correct Klondike engine you can play to a win in the terminal, on a reproducible deal.
 
 ### planned
 
-- [ ] [`0013`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0013-terminal-lifecycle-raw-mode-alternate-screen-restore-on-panic.md) Terminal lifecycle: raw mode, alternate screen, restore on panic <sup>chore · p0 · ui</sup>
 - [ ] [`0014`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0014-application-state-and-event-loop.md) Application state and event loop <sup>feature · p0 · app</sup>
 - [ ] [`0015`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0015-render-the-board.md) Render the board <sup>feature · p0 · ui</sup>
 - [ ] [`0016`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0016-keyboard-navigation-and-moving-cards.md) Keyboard navigation and moving cards <sup>feature · p0 · ui</sup>
@@ -30,6 +29,7 @@ A correct Klondike engine you can play to a win in the terminal, on a reproducib
 - [x] [`0010`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0010-stock-draw-and-waste-recycling.md) Stock draw and waste recycling <sup>feature · p0 · engine</sup>
 - [x] [`0011`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0011-win-detection-and-stuck-detection.md) Win detection and stuck detection <sup>feature · p0 · engine</sup>
 - [x] [`0012`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0012-property-tests-for-engine-invariants.md) Property tests for engine invariants <sup>test · p1 · engine · testing</sup>
+- [x] [`0013`](https://github.com/oddurs/rust-solitaire/blob/main/cairn/items/0013-terminal-lifecycle-raw-mode-alternate-screen-restore-on-panic.md) Terminal lifecycle: raw mode, alternate screen, restore on panic <sup>chore · p0 · ui</sup>
 
 ## v0.2 — Comfortable to play
 

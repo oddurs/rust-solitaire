@@ -2,7 +2,7 @@
 id: 13
 title: 'Terminal lifecycle: raw mode, alternate screen, restore on panic'
 type: chore
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 5
