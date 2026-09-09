@@ -206,6 +206,9 @@ cmd_done() {
 
   cd "$root"
   say "git worktree remove $wt"; git worktree remove --force "$wt"
+  # Drop the now-empty <type>/ directory so .worktrees does not accumulate husks.
+  parent=$(dirname "$wt")
+  if [ -d "$parent" ] && [ -z "$(ls -A "$parent")" ]; then rmdir "$parent"; fi
   say "git branch -D $b";        git branch -D --quiet "$b"
   say 'git worktree prune';       git worktree prune
   say 'git fetch --prune origin'; git fetch --quiet --prune origin
