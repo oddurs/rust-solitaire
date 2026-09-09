@@ -50,6 +50,22 @@ this on the server; the `pre-push` hook enforces it locally.
    scripts/agent done
    ```
 
+## Picking work
+
+The backlog is in `cairn/items`, one Markdown file per item, and `ROADMAP.md`
+is rendered from it. Install [cairn](https://github.com/oddurs/cairn), then:
+
+```sh
+cairn next            # what is ready to start, dependencies respected
+cairn show <ID>       # the reasoning and acceptance criteria
+cairn claim <ID>      # take it; sets status to doing
+cairn close <ID>      # when the PR that finishes it merges
+```
+
+Every item carries its reasoning, so read it before starting and add to it
+(`cairn note <ID> "..."`) when you learn something. Do not hand-edit
+`ROADMAP.md`; the hooks in `cairn.toml` regenerate it on every change.
+
 ## Commit messages
 
 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):

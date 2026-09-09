@@ -1,0 +1,177 @@
+# cairn.toml — the schema for this project's roadmap and issues.
+#
+#   cairn config          show the resolved schema
+#   cairn check           validate every item against it
+#   cairn agent           the instruction block in CLAUDE.md is generated from this
+
+format = 2
+
+[project]
+name = "rust-solitaire"
+description = "A terminal solitaire game written in Rust."
+dir = "cairn/items"
+id_width = 4
+default_type = "feature"
+default_status = "backlog"
+url = "https://github.com/oddurs/rust-solitaire/blob/main"
+
+# ─── Item types ──────────────────────────────────────────────────────────────
+
+[[type]]
+name = "feature"
+icon = "+"
+color = "cyan"
+template = """
+## Problem
+
+## Proposal
+
+## Acceptance criteria
+
+- [ ]
+"""
+
+[[type]]
+name = "bug"
+icon = "!"
+color = "red"
+template = """
+## What happens
+
+## What should happen
+
+## Reproduction
+
+1.
+"""
+
+[[type]]
+name = "chore"
+icon = "~"
+color = "gray"
+
+[[type]]
+name = "docs"
+icon = "*"
+color = "blue"
+
+[[type]]
+name = "test"
+icon = "="
+color = "green"
+
+[[type]]
+name = "milestone"
+description = "a release"
+
+# ─── Statuses ────────────────────────────────────────────────────────────────
+
+[[status]]
+name = "backlog"
+category = "open"
+color = "gray"
+
+[[status]]
+name = "planned"
+category = "open"
+color = "blue"
+
+[[status]]
+name = "doing"
+label = "in progress"
+category = "active"
+color = "yellow"
+
+[[status]]
+name = "blocked"
+category = "active"
+color = "red"
+
+[[status]]
+name = "done"
+category = "done"
+color = "green"
+
+[[status]]
+name = "dropped"
+category = "dropped"
+color = "gray"
+board = false
+
+# ─── Fields ──────────────────────────────────────────────────────────────────
+
+[[field]]
+name = "milestone"
+kind = "ref"
+target = "milestone"
+by = "key"
+rollup = true
+inverse = "scheduled"
+description = "the release this ships in"
+
+[[field]]
+name = "due"
+kind = "date"
+description = "when a milestone is meant to land"
+
+[[field]]
+name = "priority"
+kind = "enum"
+values = ["p0", "p1", "p2", "p3"]
+default = "p2"
+column = true
+description = "p0 blocks the milestone it is in"
+
+[[field]]
+name = "effort"
+kind = "enum"
+values = ["s", "m", "l", "xl"]
+description = "Rough size: s is an hour, xl is a week"
+
+[[field]]
+name = "area"
+kind = "enum"
+values = ["engine", "ui", "app", "tooling", "docs"]
+column = true
+description = "engine is pure rules with no terminal; ui is rendering and input; app is the loop, config and persistence"
+
+# ─── Saved views ─────────────────────────────────────────────────────────────
+
+[[view]]
+name = "now"
+description = "What is actually being worked on"
+filter = "category=active"
+sort = "priority,id"
+
+[[view]]
+name = "next"
+description = "Planned work, most urgent first"
+filter = "status=planned"
+sort = "priority,milestone,id"
+
+[[view]]
+name = "triage"
+description = "Items that still need a milestone"
+filter = "milestone=,type!=milestone,category!=done"
+columns = ["id", "type", "title", "created"]
+
+# ─── Hooks ───────────────────────────────────────────────────────────────────
+# ROADMAP.md is generated from the items; keep it current on every change.
+
+[hooks]
+after-create = "cairn render -q"
+after-change = "cairn render -q"
+after-remove = "cairn render -q"
+
+# ─── Rendered roadmap ────────────────────────────────────────────────────────
+
+[render]
+target = "ROADMAP.md"
+title = "Roadmap"
+group_by = "milestone"
+include = "category!=dropped"
+checkbox = true
+show_ids = true
+progress = true
+group_by_status = true
+link_items = true

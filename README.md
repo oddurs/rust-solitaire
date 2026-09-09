@@ -16,7 +16,8 @@ so that the workflow is enforced by tooling, not by convention.
 
 The project is at its foundation stage. The binary currently prints a banner
 and exits. Game logic and the terminal UI land through pull requests; see
-[CHANGELOG.md](CHANGELOG.md) for what has shipped.
+[CHANGELOG.md](CHANGELOG.md) for what has shipped and [ROADMAP.md](ROADMAP.md)
+for what is planned, milestone by milestone.
 
 ## Install
 
@@ -73,6 +74,10 @@ scripts/agent done                    # after merge: cleans up worktree + branch
 | `scripts/task test` | `cargo test` |
 | `scripts/task build` | `cargo build` |
 | `scripts/task check` | all of the above |
+
+The roadmap and backlog live in the repository as Markdown under `cairn/items`,
+managed with [cairn](https://github.com/oddurs/cairn). `cairn next` shows what
+is ready to start; `ROADMAP.md` is generated from the items.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow.
 
