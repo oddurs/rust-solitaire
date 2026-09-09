@@ -2,7 +2,7 @@
 id: 14
 title: Application state and event loop
 type: feature
-status: planned
+status: done
 milestone: v0.1
 depends_on:
 - 9
