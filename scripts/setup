@@ -9,5 +9,12 @@ if git remote get-url origin >/dev/null 2>&1; then
   printf '==> git remote set-head origin --auto\n'
   git remote set-head origin --auto >/dev/null
 fi
+if command -v cairn >/dev/null 2>&1; then
+  printf '==> cairn init --git (merge driver for ROADMAP.md and items)\n'
+  cairn init --git >/dev/null
+else
+  printf 'note: cairn is not installed; the backlog merge driver was not registered.\n'
+  printf '      https://github.com/oddurs/cairn\n'
+fi
 scripts/task check
 printf '\nReady. Start work with: scripts/agent start <type>/<slug>\n'

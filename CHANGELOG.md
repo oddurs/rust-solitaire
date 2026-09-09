@@ -11,5 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Project scaffold: binary crate that prints a banner, pinned toolchain,
   `scripts/task` seam, `scripts/agent` worktree workflow, git hooks, and CI.
+- Roadmap and backlog as cairn items under `cairn/items`, rendered to
+  `ROADMAP.md`: four milestones and the work each one needs.
 
 [Unreleased]: https://github.com/oddurs/rust-solitaire/commits/main
